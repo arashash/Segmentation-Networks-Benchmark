@@ -53,7 +53,7 @@ def train(model, imgs_train, imgs_mask_train):
     print('-' * 30)
     print('Compiling model...')
     print('-' * 30)
-    model.compile(optimizer=Adam(lr=1e-5), loss=dice_coef_loss, metrics=[dice_coef])
+    model.compile(optimizer=Adam(lr=5e-5), loss=dice_coef_loss, metrics=[dice_coef])
 
     print('-' * 30)
     print('Fitting model...')

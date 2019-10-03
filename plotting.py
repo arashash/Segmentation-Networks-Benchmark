@@ -18,7 +18,7 @@ for model, history in results.items():
     # plt.plot(history['dice_coef'])
     plt.plot(history['val_dice_coef'])
     legends += [model]
-plt.title('training results')
+plt.title('validation results')
 plt.ylabel('Dice Coeffienct')
 plt.xlabel('epoch')
 plt.legend(legends, loc='upper left')
@@ -30,7 +30,7 @@ legends = []
 for model, history in results.items():
     plt.plot(history['dice_coef'])
     legends += [model]
-plt.title('validation results')
+plt.title('training results')
 plt.ylabel('Dice Coeffienct')
 plt.xlabel('epoch')
 plt.legend(legends, loc='upper left')

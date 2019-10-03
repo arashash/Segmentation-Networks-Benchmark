@@ -22,7 +22,7 @@ def get_backboned_model(model, backbone, freeze=True):
         base_model = sm.Unet(
             backbone_name=backbone, encoder_weights='imagenet', classes=1, activation='sigmoid', freeze_encoder=freeze)
 
-    inp = Input(shape=(None, None, 1))
+    inp = Input(shape=(96, 96, 1))
     l1 = Conv2D(3, (1, 1))(inp)  # map N channels data to 3 channels
     out = base_model(l1)
 
