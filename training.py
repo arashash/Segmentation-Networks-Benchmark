@@ -2,6 +2,7 @@ import numpy as np
 from keras import backend as K
 from keras.optimizers import Adam
 from skimage.transform import resize
+from segmentation_models.utils import set_trainable
 
 img_rows = 96
 img_cols = 96
@@ -53,11 +54,16 @@ def train(model, imgs_train, imgs_mask_train):
     print('-' * 30)
     print('Compiling model...')
     print('-' * 30)
-    model.compile(optimizer=Adam(lr=5e-5), loss=dice_coef_loss, metrics=[dice_coef])
+    model.compile(optimizer=Adam(lr=1e-4), loss=dice_coef_loss, metrics=[dice_coef])
 
     print('-' * 30)
     print('Fitting model...')
     print('-' * 30)
-    history = model.fit(imgs_train, imgs_mask_train, batch_size=32, nb_epoch=20,
+    history = model.fit(imgs_train, imgs_mask_train, batch_size=16, epochs=20,
                         verbose=1, shuffle=True, validation_split=0.2)
+    # set_trainable(model)
+    #
+    # history = model.fit(imgs_train, imgs_mask_train, batch_size=16, epochs=20,
+    #                     verbose=1, shuffle=True, validation_split=0.2)
+
     return history
