@@ -1,6 +1,12 @@
 # segmentation-keras-benchmark
 Evaluation framework for testing segmentation networks in Keras
 
+# Procedure
+## Create the data
+``python3 data.py``
+## benchmark the data
+``python3 data.py``
+
 # Results
 ## First Experiment
 FPN and Unet models with low learning rate and freezed encoders
